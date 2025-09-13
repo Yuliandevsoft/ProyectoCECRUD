@@ -1,0 +1,49 @@
+﻿@model List<ProyectoCECRUD.Models.Contacto>
+
+@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt-3">
+    <div class="col-sm-12">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Lista de Contactos</h4>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-success" href="@Url.Action("Registrar","Contacto")">Crear Nuevo</a>
+                <hr />
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                                <th style="width:150px"></th>
+                            </tr>
+                        </thead>  
+                        <tbody>
+                            @foreach (ProyectoCECRUD.Models.Contacto item in Model){
+                                <tr>
+                                    <td>@item.Nombres</td>
+                                    <td>@item.Apellidos</td>
+                                    <td>@item.Telefono</td>
+                                    <td>@item.Correo</td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm">Editar</a>
+                                        <a class="btn btn-danger btn-sm">Eliminar</a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                     
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

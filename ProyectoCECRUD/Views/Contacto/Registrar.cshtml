@@ -1,0 +1,40 @@
+﻿@model ProyectoCECRUD.Models.Contacto
+
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row mt-3">
+    <div class="col-sm-12">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Nuevo contacto</h4>
+            </div>
+            <div class="card-body">
+                <form action="@Url.Action("Registrar","Contacto")" method="post">
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" class="form-control" name="Nombres">
+                    </div>
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" name="Apellidos">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefono</label>
+                        <input type="text" class="form-control" name="Telefono">
+                    </div>
+                    <div class="form-group">
+                        <label>Correo</label>
+                        <input type="text" class="form-control" name="Correo">
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-success">Registrar</button>
+                    <a class="btn btn-warning" href="@Url.Action("Inicio", "Contacto")">Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
