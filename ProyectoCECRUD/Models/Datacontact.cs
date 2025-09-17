@@ -5,8 +5,9 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
+using System.Web; 
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace ProyectoCECRUD.Models
 {
@@ -57,6 +58,34 @@ namespace ProyectoCECRUD.Models
                 cmd.Parameters.AddWithValue("@Telefono", ocontacto.Telefono);
                 cmd.Parameters.AddWithValue("@Correo", ocontacto.Correo);
 
+                oconexion.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void Editar(Contacto ocontacto)
+        {
+            using (SqlConnection oconexion = new SqlConnection(ConnectionDB.conexion))
+            {
+                SqlCommand cmd = new SqlCommand("sp_Editar", oconexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdContacto", ocontacto.IdContacto);
+                cmd.Parameters.AddWithValue("@Nombres", ocontacto.Nombres);
+                cmd.Parameters.AddWithValue("@Apellidos", ocontacto.Apellidos);
+                cmd.Parameters.AddWithValue("@Telefono", ocontacto.Telefono);
+                cmd.Parameters.AddWithValue("@Correo", ocontacto.Correo);
+
+                oconexion.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void Eliminar(string IdContacto)
+        {
+            using (SqlConnection oconexion = new SqlConnection(ConnectionDB.conexion))
+            {
+                SqlCommand cmd = new SqlCommand("sp_Eliminar", oconexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdContacto", IdContacto);
+       
                 oconexion.Open();
                 cmd.ExecuteNonQuery();
             }

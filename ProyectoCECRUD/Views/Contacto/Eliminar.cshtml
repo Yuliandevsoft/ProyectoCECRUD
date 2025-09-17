@@ -1,0 +1,30 @@
+﻿@model ProyectoCECRUD.Models.Contacto
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt-3">
+    <div class="col-sm-12">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Eliminar contacto</h4>
+            </div>
+            <div class="card-body">
+         
+                <div class="alert alert-danger">
+                    Desea eliminar este contacto: @Html.DisplayFor(m => m.Nombres) @Html.DisplayFor(m => m.Apellidos)?
+                </div>
+                <form action="@Url.Action("Eliminar", "Contacto")" method="post">
+                    <input type="hidden" class="form-control" name="IdContacto" value="@Html.DisplayTextFor(m => m. IdContacto)" />
+
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <a class="btn btn-warning" href="@Url.Action("Inicio", "Contacto")">Volver</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
